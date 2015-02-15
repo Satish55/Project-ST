@@ -4,8 +4,12 @@
 		$( "#top-header" ).slideToggle('fast',function(){
 			var newheaderH = $('.st-header').height();
 			$('main > section').css('padding-top',newheaderH);
-			// console.log('new '+newheaderH);
+			console.log('new '+newheaderH);
 		});
+	});
+	$('body').scrollspy({
+		target: '#st-pnav',
+		offset: 80
 	});
 	$('.st-bottom a').smoothScroll();
 	var windowH = $(window).height();
@@ -14,5 +18,5 @@
 	var mainH = windowH-(footerH);
 	$('main > section').css('min-height',mainH);
 	$('main > section').css('padding-top',headerH);
-	// console.log('Window ' +windowH+ ' Header '+headerH+' Footer '+ footerH);
+	console.log('Window ' +windowH+ ' Header '+headerH+' Footer '+ footerH);
 })(jQuery);

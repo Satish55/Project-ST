@@ -1,4 +1,5 @@
 body {
+	position: relative;
 	/*font-family: 'PT Sans', sans-serif;*/
 	font-family: 'Josefin Slab', serif;
 	font-size: 18px;
@@ -21,6 +22,7 @@ ul {
 	position: fixed;
 	width: 100%;
 	font-size: 22px;
+	z-index: 9999;
 }
 .top-header {
 	display: none;
@@ -78,11 +80,19 @@ ul {
 	font-size: 24px;
 
 }
-.st-bottom a.active {
+.st-bottom.nav > li,
+.st-bottom.nav > li > a:focus {
+	background: #6CB2E0;
+}
+.st-bottom.nav > li > a:hover, 
+.st-bottom.nav > li.active > a, 
+.st-bottom.nav > li.focus > a {
+	text-decoration: none;
 	background: #0099FF;
 	color: #fff;
 }
-.st-bottom a.active:after {
+
+.st-bottom li.active a:after {
 	bottom: 100%;
 	border: solid transparent;
 	content: '';
@@ -95,8 +105,11 @@ ul {
 	left: 50%;
 	margin-left: -20px;
 }
-.st-bottom a+a {
+.st-bottom li a {
 	border-right: 2px ridge #0099FF;
+}
+.st-bottom li:first-child a {
+	border-left: 2px ridge #0099FF;
 }
 main > section {
 	/*min-height: 595px;*/
@@ -106,8 +119,25 @@ main > section {
 	font-weight: bold;
 	text-transform: uppercase;
 }
-
-
+.st-main {
+	position: relative;
+}
+/*.top-tri:hover {
+	cursor: pointer;
+}
+.top-tri{
+	border: solid transparent;
+	content: '';
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-top-color: #0099FF;
+	border-width: 20px;
+	left: 0%;
+	bottom: 0px;
+	top: 0px;
+}*/
 
 
 /*iPad Group */
@@ -179,3 +209,10 @@ main > section {
 	and (orientation : landscape) { 
 
 	}
+
+/*Large */
+@media only screen and (min-width:767px) {
+	.top-wrap {
+		text-align: inherit;
+	}
+}	
